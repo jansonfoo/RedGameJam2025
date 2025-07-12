@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public string itemName;
     public RectTransform spawnZone;
-    public Vector2Int[] occupiedCells; // ← добавляем: форма фигуры
-    public Vector2 originalPosition;
+    public Vector2Int[] occupiedCells;
+
+    private Vector2 originalPosition;
     private RectTransform rectTransform;
     private Canvas canvas;
     private CanvasGroup canvasGroup;
-    private GridController grid; // ← ссылка на поле
+    private GridController grid;
+    private List<Vector2Int> lastOccupiedPositions = new List<Vector2Int>();
 
     void Awake()
     {
@@ -27,6 +28,13 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         originalPosition = rectTransform.anchoredPosition;
         canvasGroup.blocksRaycasts = false;
         transform.SetAsLastSibling();
+
+        // Очистка ранее занятых клеток
+        foreach (Vector2Int pos in lastOccupiedPositions)
+        {
+            grid.UnmarkOccupied(pos);
+        }
+        lastOccupiedPositions.Clear();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -48,24 +56,14 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         }
     }
 
-    public void ReturnToOriginalPosition()
+    private void ReturnToOriginalPosition()
     {
         rectTransform.anchoredPosition = originalPosition;
     }
 
-    private bool IsInsideZone()
-    {
-        Vector3[] worldCorners = new Vector3[4];
-        spawnZone.GetWorldCorners(worldCorners);
-
-        Vector3 itemPos = rectTransform.position;
-        return itemPos.x >= worldCorners[0].x && itemPos.x <= worldCorners[2].x &&
-               itemPos.y >= worldCorners[0].y && itemPos.y <= worldCorners[2].y;
-    }
-
     private bool CanPlaceOnGrid()
     {
-        Vector2Int cellPos = grid.GetCellFromWorldPosition(rectTransform.position);
+        Vector2Int cellPos = grid.GetCellFromAnchoredPosition(rectTransform.anchoredPosition);
 
         foreach (Vector2Int offset in occupiedCells)
         {
@@ -80,21 +78,21 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     private void PlaceOnGrid()
     {
-        Vector2Int cellPos = grid.GetCellFromWorldPosition(rectTransform.position);
+        Vector2Int cellPos = grid.GetCellFromAnchoredPosition(rectTransform.anchoredPosition);
 
-        // Отметить клетки как занятые
+        Vector2Int minOffset = GetMinOffset();
+        Vector2Int anchorCell = cellPos - minOffset;
+
+        lastOccupiedPositions.Clear(); // на всякий случай
+
         foreach (Vector2Int offset in occupiedCells)
         {
-            Vector2Int placePos = cellPos + offset;
+            Vector2Int placePos = anchorCell + offset;
             grid.MarkOccupied(placePos);
+            lastOccupiedPositions.Add(placePos); // запоминаем
         }
 
-        // Вычислим смещение фигуры относительно минимальной ячейки
-        Vector2Int minOffset = GetMinOffset(); // например, (0,1)
-
-        // Смещаем фигуру так, чтобы её визуальный центр совпал с ячейкой
-        Vector2Int anchorCell = cellPos - minOffset;
-        rectTransform.position = grid.GetWorldPositionFromCell(anchorCell);
+        rectTransform.anchoredPosition = grid.GetAnchoredPositionFromCell(anchorCell);
     }
 
     private Vector2Int GetMinOffset()
@@ -111,4 +109,5 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         return new Vector2Int(minX, minY);
     }
 }
+
 
