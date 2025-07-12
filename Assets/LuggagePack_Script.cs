@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class LuggagePack_Script : MonoBehaviour
 {
+    public List<GameObject> itemPrefabs;
+    private List<LuggageItem> items = new List<LuggageItem>();
+    public Vector2 spawnAreaMin = new Vector2(3.5f, 0f);
+    public Vector2 spawnAreaMax = new Vector2(7.5f, 4f);
+
     public class LuggageItem
     {
         public int width;
@@ -39,9 +44,40 @@ public class LuggagePack_Script : MonoBehaviour
                 anchorPoint.x = height - tmp - 1;
                 (width, height) = (height, width);
             }
-           
-
         }
+    }
+
+    public void SpawnAllItems()
+    {
+        var gridController = FindFirstObjectByType<GridController>();
+        gridController.SetupGrid(9, 5);
+
+        float cellW = gridController.cellW;
+        float cellH = gridController.cellH;
+
+        for (int i = 0; i < items.Count; i++)
+        {
+            Vector2 spawnPos = new Vector2(
+                Random.Range(spawnAreaMin.x, spawnAreaMax.x),
+                Random.Range(spawnAreaMin.y, spawnAreaMax.y)
+            );
+
+            var visual = Instantiate(itemPrefabs[i], spawnPos, Quaternion.identity);
+            visual.GetComponent<LuggageItem_Visual>().Render(items[i], cellW, cellH);
+            visual.AddComponent<LuggageDraggable>();
+
+            BoxCollider2D col = visual.AddComponent<BoxCollider2D>();
+
+            Vector3 worldSize = new Vector3(cellW * items[i].width, cellH * items[i].height, 0);
+            Vector3 localSize = visual.transform.InverseTransformVector(worldSize);
+
+            col.size = new Vector2(localSize.x, localSize.y);
+            col.offset = Vector2.zero;
+
+            foreach (var renderer in visual.GetComponentsInChildren<SpriteRenderer>())
+                renderer.sortingOrder = i+10;
+        }
+
     }
 
     public static bool[,] createRect(int width, int height)
@@ -80,7 +116,7 @@ public class LuggagePack_Script : MonoBehaviour
 
         for (int y = 0; y < height; y++)
             for (int x = 0; x < rows[y].Count; x++)
-                shape[x, y] = rows[y][x];
+                shape[x, height - 1 - y] = rows[y][x];
 
         return shape;
     }
@@ -89,12 +125,9 @@ public class LuggagePack_Script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var item11 = new LuggageItem(createRect(1, 1), "00");
-        var item22 = new LuggageItem(createRect(2, 2), "00");
-        var item31 = new LuggageItem(createRect(3, 1), "10");
-        var itemT = new LuggageItem(createCustom("010#111"), "11");
+        items.Add(new LuggageItem(createCustom("01#11"), "11"));
 
-        Debug.Log("T anchor: " + itemT.anchorPoint);
+        SpawnAllItems();
     }
 
     // Update is called once per frame

@@ -5,16 +5,30 @@ using UnityEngine;
 public class GridController : MonoBehaviour
 {
     public GameObject cellPrefab;
-    public Vector2 fieldSize = new Vector2(9, 5);
-    public int columns = 9;
-    public int rows = 5;
+    public Vector2 fieldSize;
+    public int columns;
+    public int rows;
+    public float cellW { get; private set; }
+    public float cellH { get; private set; }
+    public bool[,] IsOccupiedGrid;
+
+    public void SetupGrid(int cols, int rws)
+    {
+        columns = cols;
+        rows = rws;
+
+        foreach (Transform child in transform)
+            Destroy(child.gameObject);
+        bool[,] IsOccupiedGrid = new bool[columns, rows];
+        GenerateGrid();
+        cellW = transform.lossyScale.x / columns;
+        cellH = transform.lossyScale.y / rows;
+    }
 
     void GenerateGrid()
     {
         float cellWidth = 1f / columns;
-        Debug.Log(cellWidth + "vWidth");
         float cellHeight = 1f / rows;
-        Debug.Log(cellHeight + "vHeight");
         for (int x = 0; x < columns; x++)
         {
             for (int y = 0; y < rows; y++)
@@ -26,24 +40,16 @@ public class GridController : MonoBehaviour
 
                 GameObject cell = Instantiate(cellPrefab, transform);
                 cell.transform.localPosition = new Vector3(tmp_pos.x, tmp_pos.y, 0);
-
-                float scaleX = cellWidth*0.95f;
-                float scaleY = cellHeight*0.95f;
-                cell.transform.localScale = new Vector3(scaleX, scaleY, 1);
+                cell.transform.localScale = new Vector3(cellWidth * 0.95f, cellHeight * 0.95f, 1);
             }
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        GenerateGrid();
+        
     }
 
-    void Awake()
-    {
-        columns = 9;
-        rows = 5;
-    }
 
     // Update is called once per frame
     void Update()
