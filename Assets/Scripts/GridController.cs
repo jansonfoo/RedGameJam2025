@@ -90,16 +90,15 @@ public class GridController : MonoBehaviour
     }
 
     public void ClearHighlights()
-{
-    for (int y = 0; y < gridSize; y++)
     {
-        for (int x = 0; x < gridSize; x++)
+        for (int y = 0; y < gridSize; y++)
         {
-            Image img = cells[x, y].GetComponent<Image>();
-            if (img != null)
-                img.color = gridData[x, y] ? Color.gray : Color.white;
+            for (int x = 0; x < gridSize; x++)
+            {
+                Image img = cells[x, y].GetComponent<Image>();
+                if (img != null)
+                    img.color = gridData[x, y] ? Color.gray : Color.white;
+            }
         }
     }
 }
-}
-

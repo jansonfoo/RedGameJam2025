@@ -248,7 +248,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      sandwichtixbballdiamondskateboard_0: 5365571196843928024
+      sandwichtixbballdiamondskateboard_1: -3369370938914541218
+      sandwichtixbballdiamondskateboard_2: -6824428766586552412
+      sandwichtixbballdiamondskateboard_3: 1443585643823141254
+      sandwichtixbballdiamondskateboard_4: 4486664137102754950
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

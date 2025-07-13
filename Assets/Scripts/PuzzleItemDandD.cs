@@ -58,7 +58,20 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
     private void ReturnToOriginalPosition()
     {
+        // Переместить визуально обратно
         rectTransform.anchoredPosition = originalPosition;
+        Vector2Int cellPos = grid.GetCellFromAnchoredPosition(rectTransform.anchoredPosition);
+
+        Vector2Int minOffset = GetMinOffset();
+        Vector2Int anchorCell = cellPos - minOffset;
+
+        
+        foreach (Vector2Int offset in occupiedCells)
+        {
+            Vector2Int placePos = anchorCell + offset;
+            grid.MarkOccupied(placePos);
+            lastOccupiedPositions.Add(placePos); // запоминаем
+        }
     }
 
     private bool CanPlaceOnGrid()
