@@ -349,6 +349,18 @@ MonoBehaviour:
           m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 721458830}
+        m_TargetAssemblyTypeName: AudioScript, Assembly-CSharp
+        m_MethodName: PlaySoundButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5138fc4e84e758346ae673c324b9803e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &58669887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +589,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 721458830}
+        m_TargetAssemblyTypeName: AudioScript, Assembly-CSharp
+        m_MethodName: PlaySoundButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5138fc4e84e758346ae673c324b9803e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &185637690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -662,6 +686,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
+--- !u!1001 &721458829
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 110313130756377961, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019819178537728587, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 442.92816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 205.23763
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.53478
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5135202433711496289, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7604329045703959294, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+--- !u!114 &721458830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5866166071440482679, guid: 62a61a90ac2c086489a287a33a02ed4c, type: 3}
+  m_PrefabInstance: {fileID: 721458829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e447caa6feea4494ea49236636430e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &857537449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1107,6 +1207,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 721458830}
+        m_TargetAssemblyTypeName: AudioScript, Assembly-CSharp
+        m_MethodName: PlaySoundButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5138fc4e84e758346ae673c324b9803e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &955173669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1450,6 +1562,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 721458830}
+        m_TargetAssemblyTypeName: AudioScript, Assembly-CSharp
+        m_MethodName: PlaySoundButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5138fc4e84e758346ae673c324b9803e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2438,6 +2562,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 721458830}
+        m_TargetAssemblyTypeName: AudioScript, Assembly-CSharp
+        m_MethodName: PlaySoundButtonClick
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 5138fc4e84e758346ae673c324b9803e, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1990105080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2822,3 +2958,4 @@ SceneRoots:
   - {fileID: 2023819058}
   - {fileID: 904427380}
   - {fileID: 133652326}
+  - {fileID: 721458829}
