@@ -7,7 +7,7 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 {
     public string itemName;
     public Vector2Int[] occupiedCells;
-
+    public RectTransform spawnZone;
     private Vector2 originalPosition;
     private RectTransform rectTransform;
     private Canvas canvas;
@@ -56,9 +56,17 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         canvasGroup.blocksRaycasts = true;
         grid.ResetAllCellColors();
 
+        Vector2Int cellPos = grid.GetCellFromAnchoredPosition(rectTransform.anchoredPosition);
+        Vector2Int minOffset = GetMinOffset();
+        Vector2Int anchorCell = cellPos - minOffset;
+
         if (CanPlaceOnGrid())
         {
             PlaceOnGrid();
+        }
+        else if (IsInsideZone())
+        {
+            // Просто остаётся в зоне хранения (ничего не делаем)
         }
         else
         {
@@ -135,6 +143,16 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         }
 
         return new Vector2Int(minX, minY);
+    }
+    
+    private bool IsInsideZone()
+    {
+        Vector3[] worldCorners = new Vector3[4];
+        spawnZone.GetWorldCorners(worldCorners);
+
+        Vector3 itemPos = rectTransform.position;
+        return itemPos.x >= worldCorners[0].x && itemPos.x <= worldCorners[2].x &&
+               itemPos.y >= worldCorners[0].y && itemPos.y <= worldCorners[2].y;
     }
 }
 
