@@ -36,8 +36,8 @@ public class UIItemSpawn : MonoBehaviour
                 float width = spawnArea.rect.width;
                 float height = spawnArea.rect.height;
 
-                float x = Random.Range(-width / 1f, width / 1f);
-                float y = Random.Range(-height / 2f, height / 2f);
+                float x = Random.Range(0, width - rt.sizeDelta.x);
+                float y = Random.Range(-rt.sizeDelta.y, -height);
 
                 rt.anchoredPosition = new Vector2(x, y);
             }
