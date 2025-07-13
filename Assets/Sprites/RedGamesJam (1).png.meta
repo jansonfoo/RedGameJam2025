@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      RedGamesJam (1)_0: -4831786154606846114
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
