@@ -101,4 +101,19 @@ public class GridController : MonoBehaviour
             }
         }
     }
+
+    public bool IsGridFull()
+    {
+        for (int y = 0; y < gridSize; y++)
+        {
+            for (int x = 0; x < gridSize; x++)
+            {
+                if (!gridData[x, y])
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    
 }

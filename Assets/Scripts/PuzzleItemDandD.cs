@@ -15,6 +15,9 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private GridController grid;
     private List<Vector2Int> lastOccupiedPositions = new List<Vector2Int>();
 
+    public GameObject buttonToShow;
+    private bool shown = false;
+
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
@@ -106,6 +109,12 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         }
 
         rectTransform.anchoredPosition = grid.GetAnchoredPositionFromCell(anchorCell);
+
+        if (grid.IsGridFull())
+        {
+            buttonToShow.SetActive(true);
+            shown = true; 
+        }
     }
 
     private Vector2Int GetMinOffset()
