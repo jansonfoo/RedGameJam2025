@@ -15,34 +15,34 @@ public class UIItemSpawn : MonoBehaviour
     }
 
     void SpawnItems()
-{
-    foreach (var data in itemsToSpawn)
     {
-        for (int i = 0; i < data.count; i++)
+        foreach (var data in itemsToSpawn)
         {
-            GameObject item = Instantiate(itemPrefab, spawnArea); // parent = spawnArea
-            RectTransform rt = item.GetComponent<RectTransform>();
+            for (int i = 0; i < data.count; i++)
+            {
+                GameObject item = Instantiate(itemPrefab, spawnArea); // parent = spawnArea
+                RectTransform rt = item.GetComponent<RectTransform>();
 
-            // Установка спрайта и типа
-            Image img = item.GetComponent<Image>();
-            img.sprite = data.sprite;
+                // Установка спрайта и типа
+                Image img = item.GetComponent<Image>();
+                img.sprite = data.sprite;
 
-            ItemUI itemUI = item.GetComponent<ItemUI>();
-            itemUI.itemName = data.itemName;
-            itemUI.itemType = data.category;
-            itemUI.spawnZone = spawnArea;
+                ItemUI itemUI = item.GetComponent<ItemUI>();
+                itemUI.itemName = data.itemName;
+                itemUI.itemType = data.category;
+                itemUI.spawnZone = spawnArea;
 
-            // Спавн ВНУТРИ границ spawnArea
-            float width = spawnArea.rect.width;
-            float height = spawnArea.rect.height;
+                // Спавн ВНУТРИ границ spawnArea
+                float width = spawnArea.rect.width;
+                float height = spawnArea.rect.height;
 
-            float x = Random.Range(-width / 2f, width / 2f);
-            float y = Random.Range(-height / 2f, height / 2f);
+                float x = Random.Range(-width / 1f, width / 1f);
+                float y = Random.Range(-height / 2f, height / 2f);
 
-            rt.anchoredPosition = new Vector2(x, y);
+                rt.anchoredPosition = new Vector2(x, y);
+            }
         }
     }
-}
 }
 
 

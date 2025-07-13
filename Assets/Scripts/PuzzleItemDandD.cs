@@ -1,11 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public string itemName;
-    public RectTransform spawnZone;
     public Vector2Int[] occupiedCells;
 
     private Vector2 originalPosition;
@@ -16,7 +16,6 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private List<Vector2Int> lastOccupiedPositions = new List<Vector2Int>();
 
     public GameObject buttonToShow;
-    private bool shown = false;
 
     void Awake()
     {
@@ -38,16 +37,24 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
             grid.UnmarkOccupied(pos);
         }
         lastOccupiedPositions.Clear();
+        grid.ResetAllCellColors();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+
+        Vector2Int cellPos = grid.GetCellFromAnchoredPosition(rectTransform.anchoredPosition);
+        Vector2Int minOffset = GetMinOffset();
+        Vector2Int anchorCell = cellPos - minOffset;
+
+        grid.HighlightPlacement(anchorCell, occupiedCells);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         canvasGroup.blocksRaycasts = true;
+        grid.ResetAllCellColors();
 
         if (CanPlaceOnGrid())
         {
@@ -68,7 +75,7 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
         Vector2Int minOffset = GetMinOffset();
         Vector2Int anchorCell = cellPos - minOffset;
 
-        
+
         foreach (Vector2Int offset in occupiedCells)
         {
             Vector2Int placePos = anchorCell + offset;
@@ -112,8 +119,7 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
         if (grid.IsGridFull())
         {
-            buttonToShow.SetActive(true);
-            shown = true; 
+            SceneManager.LoadSceneAsync(1);
         }
     }
 

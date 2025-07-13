@@ -13,6 +13,9 @@ public class GridController : MonoBehaviour
     private bool[,] gridData;
     private GameObject[,] cells;
 
+    private Color defaultColor = Color.white; // начальный цвет
+private Color validColor = new Color(0.5f, 1f, 0.5f);  // зелёный
+
     void Awake()
     {
         gridData = new bool[gridSize, gridSize];
@@ -115,5 +118,38 @@ public class GridController : MonoBehaviour
         return true;
     }
 
-    
+    public void ResetAllCellColors()
+{
+    for (int y = 0; y < gridSize; y++)
+    {
+        for (int x = 0; x < gridSize; x++)
+        {
+            cells[x, y].GetComponent<Image>().color = gridData[x, y] ? Color.gray : defaultColor;
+        }
+    }
+}
+
+    public void HighlightPlacement(Vector2Int baseCell, Vector2Int[] shape)
+    {
+        ResetAllCellColors();// очищаем прошлую подсветку
+
+        foreach (Vector2Int offset in shape)
+        {
+            Vector2Int pos = baseCell + offset;
+            if (!IsInsideGrid(pos) || IsOccupied(pos))
+            {
+                return;
+            }
+        }
+
+        foreach (Vector2Int offset in shape)
+        {
+            Vector2Int pos = baseCell + offset;
+            if (IsInsideGrid(pos))
+            {
+                var img = cells[pos.x, pos.y].GetComponent<Image>();
+                img.color = new Color(0.5f, 1f, 0.5f);
+            }
+        }
+    }
 }
