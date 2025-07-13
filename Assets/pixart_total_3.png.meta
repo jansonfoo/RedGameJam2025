@@ -344,7 +344,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pixart_total_3_0: 3281842539751411842
+      pixart_total_3_1: -2059463444195773950
+      pixart_total_3_2: -3932181240955925266
+      pixart_total_3_3: -5043934559243834060
+      pixart_total_3_4: 7947709569675754396
+      pixart_total_3_5: 8137438179800291014
+      pixart_total_3_6: -8959357638436377440
+      pixart_total_3_7: -2289051407409817288
+      pixart_total_3_8: -1133390687205950302
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

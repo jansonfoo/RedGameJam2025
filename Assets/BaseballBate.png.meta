@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BaseballBate_0: 5157742896654468921
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

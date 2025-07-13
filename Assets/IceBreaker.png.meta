@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      IceBreaker_0: -48907503039091922
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

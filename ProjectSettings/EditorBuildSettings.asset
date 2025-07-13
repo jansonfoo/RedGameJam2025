@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SortGame.unity
     guid: 9a76d6375cc4a5140bb84544f5609b87
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: e32f7a66d9fcb5745b86411ff7deddd3
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7048079adf0179340b0d4d46c63ede18, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 0b85c69bc3f404b48838be8d6cda768c, type: 2}

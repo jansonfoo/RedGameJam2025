@@ -125,10 +125,10 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
         rectTransform.anchoredPosition = grid.GetAnchoredPositionFromCell(anchorCell);
 
-        if (grid.IsGridFull())
-        {
-            SceneManager.LoadSceneAsync(1);
-        }
+        //if (grid.IsGridFull())
+        //{
+        //    
+        //}
     }
 
     private Vector2Int GetMinOffset()
