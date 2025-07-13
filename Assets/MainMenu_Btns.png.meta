@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: f6e14b5e9a60edb47b65ce1b5ad0719c
+guid: 39a94fdcc586adc4fa8f95c46d1a380e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -48907503039091922
-    second: IceBreaker_0
+      213: -7498085829346720658
+    second: MainMenu_Btns_0
+  - first:
+      213: 5883250083054878463
+    second: MainMenu_Btns_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,29 +109,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IceBreaker_0
+      name: MainMenu_Btns_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 48
-        height: 39
+        x: 12
+        y: 90
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +127,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e2be08692ee325ff0800000000000000
-      internalID: -48907503039091922
+      spriteID: e64066e2aa271f790800000000000000
+      internalID: -7498085829346720658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenu_Btns_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 94
+        width: 48
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffef54d97c085a150800000000000000
+      internalID: 5883250083054878463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainMenu_Btns_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 62
+        width: 48
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd839efe9811e61419f9d1446353a696
+      internalID: -273415034
       vertices: []
       indices: 
       edges: []
@@ -145,7 +178,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7c052a3c0a7ed3c40af0cee7ab6de516
     internalID: 0
     vertices: []
     indices: 
@@ -153,7 +186,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      IceBreaker_0: -48907503039091922
+      MainMenu_Btns_0: -7498085829346720658
+      MainMenu_Btns_1: 5883250083054878463
+      MainMenu_Btns_2: -273415034
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

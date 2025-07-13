@@ -13,8 +13,8 @@ public class GridController : MonoBehaviour
     private bool[,] gridData;
     private GameObject[,] cells;
 
-    private Color defaultColor = Color.white; // начальный цвет
-private Color validColor = new Color(0.5f, 1f, 0.5f);  // зелёный
+    private Color defaultColor = new Color(0.517f, 0.494f, 0.529f); // начальный цвет
+    private Color validColor = new Color(0.5f, 1f, 0.5f);  // зелёный
 
     void Awake()
     {
@@ -60,7 +60,7 @@ private Color validColor = new Color(0.5f, 1f, 0.5f);  // зелёный
             Image img = cells[pos.x, pos.y].GetComponent<Image>();
             if (img != null)
             {
-                img.color = Color.gray; // Цвет занятых ячеек
+                img.color = new Color(0.25f, 0.25f, 0.25f); // Цвет занятых ячеек
             }
         }
     }
