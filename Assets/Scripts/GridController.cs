@@ -124,7 +124,7 @@ public class GridController : MonoBehaviour
     {
         for (int x = 0; x < gridSize; x++)
         {
-            cells[x, y].GetComponent<Image>().color = gridData[x, y] ? Color.gray : defaultColor;
+            cells[x, y].GetComponent<Image>().color = gridData[x, y] ? new Color(0.25f, 0.25f, 0.25f) : defaultColor;
         }
     }
 }
