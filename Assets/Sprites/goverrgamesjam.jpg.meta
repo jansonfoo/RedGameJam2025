@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      goverrgamesjam_0: 3475200403841494983
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
