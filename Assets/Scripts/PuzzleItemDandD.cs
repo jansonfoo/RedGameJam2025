@@ -16,6 +16,7 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
     private List<Vector2Int> lastOccupiedPositions = new List<Vector2Int>();
 
     public GameObject buttonToShow;
+    [SerializeField] GameObject winMenu;
 
     void Awake()
     {
@@ -125,10 +126,11 @@ public class PuzzleItemDandD : MonoBehaviour, IDragHandler, IBeginDragHandler, I
 
         rectTransform.anchoredPosition = grid.GetAnchoredPositionFromCell(anchorCell);
 
-        //if (grid.IsGridFull())
-        //{
-        //    
-        //}
+        if (grid.IsGridFull())
+        {
+            winMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private Vector2Int GetMinOffset()
